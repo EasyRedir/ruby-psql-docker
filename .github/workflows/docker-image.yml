@@ -5,7 +5,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build-ruby3.0-pg14:
+  build-ruby30-pg14:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -30,7 +30,7 @@ jobs:
         cache-from: type=registry,ref=user/app:latest
         cache-to: type=inline
 
-  build-ruby3.1-pg14:
+  build-ruby31-pg14:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
@@ -55,7 +55,7 @@ jobs:
         cache-from: type=registry,ref=user/app:latest
         cache-to: type=inline
 
-  build-ruby3.1-pg16:
+  build-ruby31-pg16:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
