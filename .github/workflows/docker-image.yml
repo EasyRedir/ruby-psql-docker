@@ -5,56 +5,6 @@ on:
     branches: [ master ]
 
 jobs:
-  build-ruby30-pg14:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v1
-    - name: Setup Docker Buildx
-      uses: docker/setup-buildx-action@v1
-    - name: Login to DockerHub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build and push Ruby 3.0 with PostgreSQL 14 client
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./3.0-14/Dockerfile
-        platforms: linux/amd64,linux/arm64
-        push: true
-        tags: easyredir/ruby-psql:3.0-14
-        cache-from: type=registry,ref=user/app:latest
-        cache-to: type=inline
-
-  build-ruby31-pg14:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Set up QEMU
-      uses: docker/setup-qemu-action@v1
-    - name: Setup Docker Buildx
-      uses: docker/setup-buildx-action@v1
-    - name: Login to DockerHub
-      uses: docker/login-action@v1
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build and push Ruby 3.1 with PostgreSQL 14 client
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./3.1-14/Dockerfile
-        platforms: linux/amd64,linux/arm64
-        push: true
-        tags: easyredir/ruby-psql:3.1-14
-        cache-from: type=registry,ref=user/app:latest
-        cache-to: type=inline
-
   build-ruby31-pg16:
     runs-on: ubuntu-latest
     steps:
