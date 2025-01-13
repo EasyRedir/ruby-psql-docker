@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build-ruby31-pg16:
+  build-ruby31-pg17:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
