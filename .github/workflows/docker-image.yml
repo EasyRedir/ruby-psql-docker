@@ -20,13 +20,13 @@ jobs:
       with:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
-    - name: Build and push Ruby 3.1 with PostgreSQL 16 client
+    - name: Build and push Ruby 3.1 with PostgreSQL 17 client
       uses: docker/build-push-action@v2
       with:
         context: .
-        file: ./3.1-16/Dockerfile
+        file: ./3.1-17/Dockerfile
         platforms: linux/amd64,linux/arm64
         push: true
-        tags: easyredir/ruby-psql:3.1-16
+        tags: easyredir/ruby-psql:3.1-17
         cache-from: type=registry,ref=user/app:latest
         cache-to: type=inline

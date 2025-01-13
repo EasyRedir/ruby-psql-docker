@@ -1,7 +1,7 @@
 FROM easyredir/ruby:3.1
 
 ENV DEBIAN_FRONTEND noninteractive
-ENV PG_MAJOR 16
+ENV PG_MAJOR 17
 
 RUN curl -sS https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor > /usr/share/keyrings/postgresql.gpg
 
